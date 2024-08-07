@@ -5,6 +5,7 @@ import expressOasGenerator from '@mickeymond/express-oas-generator'
 import session from "express-session"
 import MongoStore from "connect-mongo";
 import userRouter from "./routes/user.js";
+import errorHandler from "errorhandler";
 
 
 
@@ -41,6 +42,8 @@ app.use("/api/v1", userRouter);
 
 expressOasGenerator.handleRequests();
 app.use((req, res) => res.redirect('/api-docs/'));
+app.use(errorHandler({ log: false }));
+
 
 
 
