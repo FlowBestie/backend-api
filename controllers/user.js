@@ -22,7 +22,8 @@ export const register = async (req, res, next) => {
         // Create user
         await UserModel.create({
             ...value,
-            password: hashedPassword
+            password: hashedPassword,
+            confirmPassword:hashedPassword
         });
 
         //send confirmation email
