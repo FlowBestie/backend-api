@@ -13,10 +13,12 @@ const userSchema = new Schema(
   },
   {
     timestamps: true,
+    versionKey:false
   }
 );
 
 userSchema.plugin(toJSON);
-userSchema.plugin(mongooseErrors);
+// userSchema.plugin(mongooseErrors);
 
 export const UserModel = model("User", userSchema);
+
