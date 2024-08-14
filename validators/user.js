@@ -24,3 +24,27 @@ export const resetPasswordValidator = Joi.object({
     password: Joi.string().required(),
     confirmPassword: Joi.string().valid(Joi.ref('password')).required(),
 });
+
+
+
+export const cycleDataSchema = Joi.object({
+  userId: Joi.string(), 
+  periodStartDate: Joi.date().required(),
+  periodLength: Joi.number().integer().min(1).required(),  
+  cycleLength: Joi.number().integer().min(1).required(),  
+  currentCycleDay: Joi.number().integer().min(1), 
+  nextPeriodDate: Joi.date(),  
+  ovulationDate: Joi.date(), 
+  daysToNextPeriod:Joi.number(),
+ 
+});
+
+
+export const subscriptionSchema = Joi.object({
+  email: Joi.string().email().required(), 
+ 
+});
+
+
+
+

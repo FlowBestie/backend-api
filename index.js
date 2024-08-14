@@ -6,6 +6,7 @@ import session from "express-session"
 import MongoStore from "connect-mongo";
 import userRouter from "./routes/user.js";
 import errorHandler from "errorhandler";
+import cycleDataRouter from "./routes/cycleData.js";
 
 
 
@@ -39,6 +40,8 @@ app.use(session({
 }))
 
 app.use("/api/v1", userRouter);
+app.use("/api/v1", cycleDataRouter);
+
 
 expressOasGenerator.handleRequests();
 app.use((req, res) => res.redirect('/api-docs/'));

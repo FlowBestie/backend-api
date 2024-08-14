@@ -11,7 +11,8 @@ const resetTokenSchema = new Schema({
         default: () => new Date().setHours(new Date().getHours() + 2)
     }
 }, {
-    timestamps: true
+    timestamps: true,
+    versionKey:false
 });
 resetTokenSchema
     .plugin(mongooseErrors)
