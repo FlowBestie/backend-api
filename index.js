@@ -7,6 +7,7 @@ import MongoStore from "connect-mongo";
 import userRouter from "./routes/user.js";
 import errorHandler from "errorhandler";
 import cycleDataRouter from "./routes/cycleData.js";
+import calendarRouter from "./routes/calendar.js";
 
 
 
@@ -18,7 +19,7 @@ console.log("Database is connected")
 const app = express();
 expressOasGenerator.handleResponses(app, {
     alwaysServeDocs: true,
-    tags: ['users','auth'],
+    tags: ['users','auth','cycle'],
     mongooseModels: mongoose.modelNames()
     
     
@@ -41,6 +42,7 @@ app.use(session({
 
 app.use("/api/v1", userRouter);
 app.use("/api/v1", cycleDataRouter);
+app.use("/api/v1/",calendarRouter);
 
 
 expressOasGenerator.handleRequests();

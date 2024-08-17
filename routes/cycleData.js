@@ -8,7 +8,7 @@ const cycleDataRouter = Router();
 cycleDataRouter.get('/cycle/results',isAuthenticated, getCycleResults);
 
 // Route to create new cycle data
-cycleDataRouter.post('/cycle/data', createCycleData);
+cycleDataRouter.post('/cycle/data',isAuthenticated, createCycleData);
 
 // Route to update existing cycle data
 cycleDataRouter.patch('/cycle/data/:id',isAuthenticated, updateCycleData);

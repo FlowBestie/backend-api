@@ -6,7 +6,7 @@ import mongooseErrors from "mongoose-errors";
 
 const cycleDataSchema = new Schema({
   
-  userId: { type: Types.ObjectId, ref: 'User', required: true ,select:false}, 
+  userId: { type: Types.ObjectId, ref: 'User',select:false}, 
   periodStartDate: { type: Date, required: true },
   periodLength: { type: Number, required: true },  // Duration of the period in days
   cycleLength: { type: Number, required: true },  // Length of the menstrual cycle in days
@@ -17,7 +17,7 @@ const cycleDataSchema = new Schema({
  
 },{
     timestamps:true,
-    versionKey:false
+    // versionKey:false
 });
 
 cycleDataSchema.plugin(toJSON);
